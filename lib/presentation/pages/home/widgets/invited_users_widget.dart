@@ -32,7 +32,7 @@ class InvitedUsersWidget extends StatelessWidget {
                   child: ListTile(
                     leading: CircleAvatar(
                       radius: 30,
-                      backgroundColor: greyColor,
+                      backgroundColor: greyColor.withOpacity(0.5),
                       child: CircleAvatar(
                         backgroundColor: whiteColor,
                         radius: 26,
@@ -69,10 +69,10 @@ class InvitedUsersWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(4),
                 child: ListTile(
-                  leading: const CircleAvatar(
-                    backgroundColor: greyColor,
+                  leading: CircleAvatar(
+                    backgroundColor: greyColor.withOpacity(0.5),
                     radius: 30,
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       backgroundColor: whiteColor,
                       radius: 26,
                       child: Icon(Icons.person),
