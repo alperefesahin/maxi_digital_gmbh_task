@@ -1,11 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:maxi_digital_gmbh_task/domain/user/user.dart';
 import 'package:maxi_digital_gmbh_task/presentation/common_widgets/colors.dart';
 
 class InvitedUsersWidget extends StatelessWidget {
   const InvitedUsersWidget({Key? key, required this.listOfUsers}) : super(key: key);
-
   final List<User> listOfUsers;
+
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -13,9 +14,47 @@ class InvitedUsersWidget extends StatelessWidget {
         context: context,
         removeTop: true,
         child: ListView.builder(
+          physics: const AlwaysScrollableScrollPhysics(),
           padding: const EdgeInsets.symmetric(vertical: 15),
-          itemCount: 3,
+          itemCount: listOfUsers.length + 1,
           itemBuilder: (context, index) {
+            if (index == listOfUsers.length) {
+              return Card(
+                color: whiteColor,
+                elevation: 25,
+                shadowColor: greyColor.withOpacity(0.3),
+                margin: const EdgeInsets.only(top: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: greyColor,
+                      child: CircleAvatar(
+                        backgroundColor: whiteColor,
+                        radius: 26,
+                        child: Icon(
+                          CupertinoIcons.plus,
+                          color: orangeColor,
+                        ),
+                      ),
+                    ),
+                    title: Text(
+                      "Invite",
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: orangeColor,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }
+
             final userName = listOfUsers[index].userFirstName;
             final userTotalEarned = listOfUsers[index].totalEarned;
 
@@ -31,8 +70,13 @@ class InvitedUsersWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(4),
                 child: ListTile(
                   leading: const CircleAvatar(
-                    radius: 26,
-                    child: Icon(Icons.abc),
+                    backgroundColor: greyColor,
+                    radius: 30,
+                    child: CircleAvatar(
+                      backgroundColor: whiteColor,
+                      radius: 26,
+                      child: Icon(Icons.person),
+                    ),
                   ),
                   title: Text(
                     userName,

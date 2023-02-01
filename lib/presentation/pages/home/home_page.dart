@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     final sizeWidth = size.width;
     final sizeHeight = size.height;
-    final sizedBoxFromSizeHeight = sizeHeight / 1.3;
+    final sizedBoxFromSizeHeight = sizeHeight / 1.4;
     final topBarHeight = sizeHeight / 2.2;
     final invitedUsersStartPoint = topBarHeight - 92;
 
@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  padding: const EdgeInsets.only(left: 32, right: 32, top: 60),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
