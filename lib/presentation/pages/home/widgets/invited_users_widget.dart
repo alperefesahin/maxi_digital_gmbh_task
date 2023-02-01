@@ -28,7 +28,7 @@ class InvitedUsersWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(0),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(4),
+                  padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 12),
                   child: ListTile(
                     leading: CircleAvatar(
                       radius: 30,
@@ -60,7 +60,7 @@ class InvitedUsersWidget extends StatelessWidget {
 
             return Card(
               color: whiteColor,
-              elevation: 15,
+              elevation: 25,
               shadowColor: greyColor.withOpacity(0.5),
               margin: const EdgeInsets.only(top: 15),
               shape: RoundedRectangleBorder(
