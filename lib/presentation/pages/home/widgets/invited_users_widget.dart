@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:maxi_digital_gmbh_task/domain/user/user.dart';
 import 'package:maxi_digital_gmbh_task/presentation/common_widgets/colors.dart';
 
 class InvitedUsersWidget extends StatelessWidget {
-  const InvitedUsersWidget({Key? key}) : super(key: key);
+  const InvitedUsersWidget({Key? key, required this.listOfUsers}) : super(key: key);
 
+  final List<User> listOfUsers;
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -14,6 +16,9 @@ class InvitedUsersWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 15),
           itemCount: 3,
           itemBuilder: (context, index) {
+            final userName = listOfUsers[index].userFirstName;
+            final userTotalEarned = listOfUsers[index].totalEarned;
+
             return Card(
               color: whiteColor,
               elevation: 15,
@@ -29,9 +34,9 @@ class InvitedUsersWidget extends StatelessWidget {
                     radius: 26,
                     child: Icon(Icons.abc),
                   ),
-                  title: const Text(
-                    "Name",
-                    style: TextStyle(
+                  title: Text(
+                    userName,
+                    style: const TextStyle(
                       fontSize: 17,
                       color: blackColor,
                       fontWeight: FontWeight.w500,
@@ -49,9 +54,9 @@ class InvitedUsersWidget extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "+20 €",
+                        userTotalEarned != 0 ? "+$userTotalEarned €" : "0 €",
                         style: TextStyle(
-                          color: orangeColor,
+                          color: userTotalEarned != 0 ? orangeColor : greyColor,
                           fontSize: 23,
                           fontWeight: FontWeight.w800,
                         ),
